@@ -19,7 +19,6 @@ public class AgencyService {
     private AgencyRepository agencyRepository;
 
     public Agency createAgency(Agency newAgency) {
-        return agencyRepository.save(newAgency);
-        
+        return agencyRepository.save(newAgency); 
     }
 }
