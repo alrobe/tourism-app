@@ -30,13 +30,11 @@ public class Location implements Serializable {
     private double latitude;
 
     @NotBlank
-    @Column(name = "latitude")
-
+    @Column(name = "longitude")
     private double longitude;
 
     @NotBlank
-    @Column(name = "latitude")
-
+    @Column(name = "description")
     private String description;
 
     public Location() {
