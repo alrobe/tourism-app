@@ -28,9 +28,6 @@ public class DestinationController {
 
     @Autowired
     private DestinationService destinationService;
-    
-    @Autowired
-    private DestinationRepository dR;
 
     @Autowired
     private LocationService locationService;
