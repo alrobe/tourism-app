@@ -6,7 +6,7 @@
 package edu.umss.fcyt.tourismapp.destination;
 
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -22,16 +22,15 @@ public class DestinationService {
         return destinyRepository.save(destiny);
     }
     
-    public Destination editDestination(long id) {
-        Destination destiny = destinyRepository.getOne(id);
-        if (destiny == null) {
-            throw new EntityNotFoundException("Destiny with id:" + id +
-                    "does not exist.!");
-        }
-        return destiny;
+    public Destination editDestination(Destination destination) {
+        return destinyRepository.save(destination);
     }
 
     public List<Destination> getAllDestinations() {
         return destinyRepository.findAll();
+    }
+    
+    public Optional<Destination> findById(long id) {
+        return destinyRepository.findById(id);
     }
 }
