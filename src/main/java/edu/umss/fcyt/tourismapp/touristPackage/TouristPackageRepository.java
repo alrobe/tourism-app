@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TouristPackageRepository extends JpaRepository<Package, Long>
+public interface TouristPackageRepository extends JpaRepository<TouristPackage, Long>
 {
-	List<Package> findByName(String name);
+	List<TouristPackage> findByName(String name);
 }
