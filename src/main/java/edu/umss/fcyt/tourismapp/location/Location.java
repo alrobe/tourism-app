@@ -37,9 +37,6 @@ public class Location implements Serializable {
     @Column(name = "description")
     private String description;
 
-    public Location() {
-    }
-
     public Long getLocationId() {
         return locationId;
     }
@@ -70,6 +67,9 @@ public class Location implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Location() {
     }
 
     @Override
