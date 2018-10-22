@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.OneToOne;
 
 @Entity
 public class PaqueteTuristico {
@@ -30,9 +31,50 @@ public class PaqueteTuristico {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "paquete_turistico_id")
-    @NotNull
     private List<Foto> fotos = new ArrayList<Foto>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paquete_turistico_id")
+    //@NotNull
+    private List<Circuito> circuitos = new ArrayList<Circuito>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paquete_turistico_id")
+    private List<Servicio> servicios = new ArrayList<Servicio>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "paquete_turistico_id")
+    private List<Calificacion> calificaciones = new ArrayList<Calificacion>();
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "intinerario_id")
+    //@NotNull
+    private Intinerario intinerario;
 
+
+    public List<Circuito> getCircuitos() {
+        return circuitos;
+    }
+
+    public void setCircuitos(List<Circuito> circuitos) {
+        this.circuitos = circuitos;
+    }
+
+    public List<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<Servicio> servicios) {
+        this.servicios = servicios;
+    }
+
+    public Intinerario getIntinerario() {
+        return intinerario;
+    }
+
+    public void setIntinerario(Intinerario intinerario) {
+        this.intinerario = intinerario;
+    }
     public Long getId() {
         return id;
     }
