@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class PaqueteTuristico {
@@ -35,7 +36,8 @@ public class PaqueteTuristico {
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "paquete_turistico_id")
-    //@NotNull
+    @NotNull
+    @Size(min = 1)
     private List<Circuito> circuitos = new ArrayList<Circuito>();
     
     @OneToMany(cascade = CascadeType.ALL)
