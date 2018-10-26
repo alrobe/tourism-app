@@ -1,13 +1,14 @@
 package edu.umss.fcyt.tourismapp.paquete_turistico;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+
+import javax.persistence.PostUpdate;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PaqueteTuristicoController {
@@ -23,4 +24,25 @@ public class PaqueteTuristicoController {
     public PaqueteTuristico create(@Valid @RequestBody PaqueteTuristico paqueteTuristico) {
         return paqueteTuristicoService.save(paqueteTuristico);
     }
+
+    @RequestMapping(
+            value = "/paquete/{id}",   //paquete
+            method = RequestMethod.PUT
+    )                                    //delete path
+    public ResponseEntity<Object> update(@Valid @PathVariable Long id, @RequestBody PaqueteTuristico paqueteTuristico) {
+                                                                                    // paqueteTuristico.getId()
+        Optional<PaqueteTuristico> paqueteTuristicoOptional = paqueteTuristicoService.findById(id);
+        if (!paqueteTuristicoOptional.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+        PaqueteTuristico paquete = paqueteTuristicoOptional.get();
+
+        paquete.setNombre(paqueteTuristico.getNombre());
+        paquete.setDescripcion(paqueteTuristico.getDescripcion());
+        paquete.setPrecio(paqueteTuristico.getPrecio());
+        paquete.setFotos(paqueteTuristico.getFotos());
+        paqueteTuristicoService.update(paquete);
+        return ResponseEntity.noContent().build();
+    }
+
 }
