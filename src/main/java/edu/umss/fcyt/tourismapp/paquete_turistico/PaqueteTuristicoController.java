@@ -1,11 +1,8 @@
 package edu.umss.fcyt.tourismapp.paquete_turistico;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -24,5 +21,15 @@ public class PaqueteTuristicoController {
     @PostMapping("/paquete")
     public PaqueteTuristico create(@Valid @RequestBody PaqueteTuristico paqueteTuristico) {
         return paqueteTuristicoService.save(paqueteTuristico);
+    }
+
+    @GetMapping("/paquete/{id}")
+    public PaqueteTuristico getOne(@PathVariable(value = "id") Long id) {
+        return paqueteTuristicoService.getOne(id);
+    }
+
+    @DeleteMapping("/paquete/{id}")
+    public ResponseEntity<?> deletePaquete(@PathVariable(value = "id") Long id) {
+        return paqueteTuristicoService.deletePaquete(id);
     }
 }
