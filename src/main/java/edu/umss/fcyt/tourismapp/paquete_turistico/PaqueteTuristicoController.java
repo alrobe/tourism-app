@@ -42,6 +42,8 @@ public class PaqueteTuristicoController {
         paquete.setDescripcion(paqueteTuristico.getDescripcion());
         paquete.setPrecio(paqueteTuristico.getPrecio());
         paquete.setFotos(paqueteTuristico.getFotos());
+        paquete.setCircuitos(paqueteTuristico.getCircuitos());
+        paquete.setServicios(paqueteTuristico.getServicios());
         paqueteTuristicoService.update(paquete);
         return ResponseEntity.noContent().build();
     }
