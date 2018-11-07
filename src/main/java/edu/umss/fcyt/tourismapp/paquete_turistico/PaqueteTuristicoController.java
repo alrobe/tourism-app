@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 public class PaqueteTuristicoController {
     @Autowired
@@ -45,4 +46,13 @@ public class PaqueteTuristicoController {
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping("/paquete/{id}")
+    public PaqueteTuristico getOne(@PathVariable(value = "id") Long id) {
+        return paqueteTuristicoService.getOne(id);
+    }
+
+    @DeleteMapping("/paquete/{id}")
+    public ResponseEntity<?> deletePaquete(@PathVariable(value = "id") Long id) {
+        return paqueteTuristicoService.deletePaquete(id);
+    }
 }
