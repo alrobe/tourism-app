@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Intinerario {
+public class Itinerario {
     @Id
     @GeneratedValue
     private Long id;

@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TourismAppApplication",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "edu.umss.fcyt.tourismapp.TourismAppApplication",
+            "args": ""
+        }
+    ]
+}

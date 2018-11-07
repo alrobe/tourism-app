@@ -48,10 +48,10 @@ public class PaqueteTuristico {
     @JoinColumn(name = "paquete_turistico_id")
     private List<Calificacion> calificaciones = new ArrayList<Calificacion>();
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "intinerario_id")
+    @OneToOne
+    @JoinColumn(name = "itinerario_id")
     //@NotNull
-    private Intinerario intinerario;
+    private Itinerario itinerario;
 
 
     public List<Circuito> getCircuitos() {
@@ -70,12 +70,12 @@ public class PaqueteTuristico {
         this.servicios = servicios;
     }
 
-    public Intinerario getIntinerario() {
-        return intinerario;
+    public Itinerario getItinerario() {
+        return itinerario;
     }
 
-    public void setIntinerario(Intinerario intinerario) {
-        this.intinerario = intinerario;
+    public void setItinerario(Itinerario itinerario) {
+        this.itinerario = itinerario;
     }
     public Long getId() {
         return id;
@@ -115,5 +115,13 @@ public class PaqueteTuristico {
 
     public void setFotos(List<Foto> fotos) {
         this.fotos = fotos;
+    }
+
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
     }
 }

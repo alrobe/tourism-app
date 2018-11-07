@@ -12,17 +12,17 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class PaqueteTuristicoController {
+public class CalificacionController {
     @Autowired
-    private PaqueteTuristicoService paqueteTuristicoService;
+    private CalificacionService calificacionService;
 
-    @GetMapping("/paquetes")
-    public List<PaqueteTuristico> index() {
-        return paqueteTuristicoService.getAll();
+    @GetMapping("/calificaciones")
+    public List<Calificacion> index() {
+        return calificacionService.getAll();
     }
 
-    @PostMapping("/paquete")
-    public PaqueteTuristico create(@Valid @RequestBody PaqueteTuristico paqueteTuristico) {
-        return paqueteTuristicoService.save(paqueteTuristico);
+    @PostMapping("/calificacion")
+    public Calificacion create(@Valid @RequestBody Calificacion calificacion) {
+        return calificacionService.save(calificacion);
     }
 }
