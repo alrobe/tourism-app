@@ -7,10 +7,12 @@ package edu.umss.fcyt.tourismapp.destination;
 
 import edu.umss.fcyt.tourismapp.location.Location;
 import edu.umss.fcyt.tourismapp.location.LocationService;
+import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -32,6 +34,10 @@ public class DestinationController {
     @Autowired
     private LocationService locationService;
 
+    @GetMapping("/all")
+    public List<Destination> index() {
+        return destinationService.getAllDestinations();
+    }
     @PostMapping("")
     public Destination createDestination(@Valid @RequestBody Destination destination) {
         Location location = locationService.createLocation(destination.getLocation());
