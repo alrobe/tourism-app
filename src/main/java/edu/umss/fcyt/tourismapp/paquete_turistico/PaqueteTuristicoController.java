@@ -23,7 +23,7 @@ public class PaqueteTuristicoController {
         return paqueteTuristicoService.getAll();
     }
 
-    @GetMapping("/paquetes/{id}")
+    @GetMapping("/paquete/{id}")
     public PaqueteTuristico getById(@PathVariable long id) {
         return paqueteTuristicoService.getById(id);
     }
