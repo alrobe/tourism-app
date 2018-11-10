@@ -5,15 +5,21 @@
  */
 package edu.umss.fcyt.tourismapp.destination;
 
+import edu.umss.fcyt.tourismapp.circuit.Circuit;
 import edu.umss.fcyt.tourismapp.location.Location;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -22,6 +28,7 @@ import javax.validation.constraints.Size;
  * @author Lopez
  */
 @Entity
+@Table(name = "Destination")
 public class Destination implements Serializable {
 
     @Id
@@ -32,6 +39,11 @@ public class Destination implements Serializable {
     @Column(unique = true, nullable = false, name = "name")
     @Size(min = 5, max = 40)
     private String name;
+    
+    @NotBlank
+    @Column(name = "description")
+    @Size(min = 5, max = 40)
+    private String description;
 
     @NotBlank
     @Size(min = 3, max = 50)
@@ -69,10 +81,28 @@ public class Destination implements Serializable {
 
     @OneToOne
     private Location location;
-
+    
     public Destination() {
     }
+    
+     
+    
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getWeather() {
+        return weather;
+    }
+
+    public void setWeather(String weather) {
+        this.weather = weather;
+    }
+    
     public Long getDestinyId() {
         return destinyId;
     }
