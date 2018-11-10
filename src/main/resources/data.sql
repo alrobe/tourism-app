@@ -1,4 +1,38 @@
-----------------------------
+-- ----------------------------
+-- Table structure for agency
+-- ----------------------------
+DROP TABLE IF EXISTS `agency`;
+CREATE TABLE `agency` (
+  `id` bigint(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `web_page` varchar(255) DEFAULT NULL,
+  `person_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_83gf327dym4y446171hk5q670` (`email`),
+  KEY `FKd5ljdwtrxrweiwntseok7y41k` (`person_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of agency
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for calificacion
+-- ----------------------------
+DROP TABLE IF EXISTS `calificacion`;
+CREATE TABLE `calificacion` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comentario` varchar(255) DEFAULT NULL,
+  `paquete_turistico_id` bigint(20) NOT NULL,
+  `valor` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `FKr7j2bwcqgd9ospvu5od8mexdf` (`paquete_turistico_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
 -- Records of calificacion
 -- ----------------------------
 INSERT INTO `calificacion` VALUES ('1', 'malo', '1', '1');
@@ -37,6 +71,32 @@ INSERT INTO `calificacion` VALUES ('57', 'buenisimo', '1', '0');
 INSERT INTO `calificacion` VALUES ('58', 'buenisimo', '1', '0');
 
 -- ----------------------------
+-- Table structure for circuit
+-- ----------------------------
+DROP TABLE IF EXISTS `circuit`;
+CREATE TABLE `circuit` (
+  `id` bigint(20) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of circuit
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for circuito
+-- ----------------------------
+DROP TABLE IF EXISTS `circuito`;
+CREATE TABLE `circuito` (
+  `id` bigint(20) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `paquete_turistico_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKirlyyy7rqvjtb06yehj1wnx52` (`paquete_turistico_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
 -- Records of circuito
 -- ----------------------------
 INSERT INTO `circuito` VALUES ('1', 'paseo A', '2');
@@ -71,6 +131,60 @@ INSERT INTO `circuito` VALUES ('29', 'reserva B', '14');
 INSERT INTO `circuito` VALUES ('30', 'pueblo D', '3');
 
 -- ----------------------------
+-- Table structure for circuit_destination
+-- ----------------------------
+DROP TABLE IF EXISTS `circuit_destination`;
+CREATE TABLE `circuit_destination` (
+  `circuit_id` bigint(20) NOT NULL,
+  `destination_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`circuit_id`,`destination_id`),
+  KEY `FKaqse063wxf5u61k4j6h8c9x82` (`destination_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of circuit_destination
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for destination
+-- ----------------------------
+DROP TABLE IF EXISTS `destination`;
+CREATE TABLE `destination` (
+  `destiny_id` bigint(20) NOT NULL,
+  `available_service` varchar(40) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `department` varchar(50) DEFAULT NULL,
+  `description` varchar(40) DEFAULT NULL,
+  `locality` varchar(40) DEFAULT NULL,
+  `name` varchar(40) NOT NULL,
+  `province` varchar(50) DEFAULT NULL,
+  `travel_time` varchar(40) DEFAULT NULL,
+  `weather` varchar(40) DEFAULT NULL,
+  `location_location_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`destiny_id`),
+  UNIQUE KEY `UK_kw349sqcyo1k39xa0wn3k3q2r` (`name`),
+  KEY `FKqhqqmlo8pnupfsna7drus3tj4` (`location_location_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of destination
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for foto
+-- ----------------------------
+DROP TABLE IF EXISTS `foto`;
+CREATE TABLE `foto` (
+  `id` bigint(20) NOT NULL,
+  `data` longtext,
+  `nombre` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `paquete_turistico_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKbeqfcepl2xige8nt9qy96vry2` (`paquete_turistico_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
 -- Records of foto
 -- ----------------------------
 INSERT INTO `foto` VALUES ('1', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3T1DXSbPtReujI5IwP5X6FSRw1vRnQ9gTPYqPUs6DhaMEPIH_', 'foto1', 'jpg', '9');
@@ -88,6 +202,20 @@ INSERT INTO `foto` VALUES ('12', 'https://encrypted-tbn0.gstatic.com/images?q=tb
 INSERT INTO `foto` VALUES ('13', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFequcMQgbTFbHdLQvXgG-7XcGEOiz4HQRUyeJD1p_tAsdtxPnw', 'foto13', 'jpg', '15');
 INSERT INTO `foto` VALUES ('14', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFequcMQgbTFbHdLQvXgG-7XcGEOiz4HQRUyeJD1p_tAsdtxPnw', 'foto14', 'jpg', '6');
 INSERT INTO `foto` VALUES ('15', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDFequcMQgbTFbHdLQvXgG-7XcGEOiz4HQRUyeJD1p_tAsdtxPnw', 'foto15', 'jpg', '7');
+
+-- ----------------------------
+-- Table structure for itinerario
+-- ----------------------------
+DROP TABLE IF EXISTS `itinerario`;
+CREATE TABLE `itinerario` (
+  `id` bigint(20) NOT NULL,
+  `fecha_fin` date NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `hora_fin` time NOT NULL,
+  `hora_inicio` time NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of itinerario
@@ -109,6 +237,36 @@ INSERT INTO `itinerario` VALUES ('14', '2018-12-02', '2018-11-22', '14:33:33', '
 INSERT INTO `itinerario` VALUES ('15', '2018-12-12', '2018-12-01', '16:34:47', '20:00:00', 'itin15');
 
 -- ----------------------------
+-- Table structure for location
+-- ----------------------------
+DROP TABLE IF EXISTS `location`;
+CREATE TABLE `location` (
+  `location_id` bigint(20) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  PRIMARY KEY (`location_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of location
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for paquete_turistico
+-- ----------------------------
+DROP TABLE IF EXISTS `paquete_turistico`;
+CREATE TABLE `paquete_turistico` (
+  `id` bigint(20) NOT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `precio` decimal(19,2) NOT NULL,
+  `itinerario_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK4s5s46i21sw5eeyq9ixcsleuu` (`itinerario_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
 -- Records of paquete_turistico
 -- ----------------------------
 INSERT INTO `paquete_turistico` VALUES ('1', 'Pasa unas vacaciones en Yungas para caminar por paisajes increíblemente variados y montañas nevadas, bosques nubosos y la selva densa de esta región remota ubicada entre los Andes y la cuenca del Amazonas.', 'Yungas', '500.00', '3');
@@ -126,6 +284,36 @@ INSERT INTO `paquete_turistico` VALUES ('12', 'BOLTUR te invita a viajar en el b
 INSERT INTO `paquete_turistico` VALUES ('13', 'Al sur de La Paz se encuentra la localidad de Huajchilla donde se realiza uno de los deportes de adrenalina \"El Parapente\".', 'Parapente', '3700.00', '11');
 INSERT INTO `paquete_turistico` VALUES ('14', 'Principal sitio arqueológico de Bolivia, ubicado a 72 km. de la ciudad de La Paz.', 'Tiwanaku', '2500.00', '12');
 INSERT INTO `paquete_turistico` VALUES ('15', 'Capital de Bolivia y tierra del vino.', 'Sucre', '1400.00', '15');
+
+-- ----------------------------
+-- Table structure for person
+-- ----------------------------
+DROP TABLE IF EXISTS `person`;
+CREATE TABLE `person` (
+  `id` bigint(20) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `last_name` varchar(40) DEFAULT NULL,
+  `name` varchar(40) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_fwmwi44u55bo4rvwsv0cln012` (`email`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of person
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for servicio
+-- ----------------------------
+DROP TABLE IF EXISTS `servicio`;
+CREATE TABLE `servicio` (
+  `id` bigint(20) NOT NULL,
+  `nombre` varchar(255) DEFAULT NULL,
+  `paquete_turistico_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK30ywix4i2nxmjl2aslaatmmx4` (`paquete_turistico_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of servicio
