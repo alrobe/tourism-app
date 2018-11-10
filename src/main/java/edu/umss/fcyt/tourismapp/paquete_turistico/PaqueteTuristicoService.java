@@ -14,6 +14,10 @@ public class PaqueteTuristicoService {
         return paqueteTuristicoRepository.findAll();
     }
 
+    public PaqueteTuristico getById(long id) {
+        return paqueteTuristicoRepository.findById(id).get();
+    }
+
     public PaqueteTuristico save(PaqueteTuristico paqueteTuristico) {
         return paqueteTuristicoRepository.save(paqueteTuristico);
     }

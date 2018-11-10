@@ -3,6 +3,7 @@ package edu.umss.fcyt.tourismapp.paquete_turistico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,11 @@ public class PaqueteTuristicoController {
     @GetMapping("/paquetes")
     public List<PaqueteTuristico> index() {
         return paqueteTuristicoService.getAll();
+    }
+
+    @GetMapping("/paquetes/{id}")
+    public PaqueteTuristico getById(@PathVariable long id) {
+        return paqueteTuristicoService.getById(id);
     }
 
     @PostMapping("/paquete")
