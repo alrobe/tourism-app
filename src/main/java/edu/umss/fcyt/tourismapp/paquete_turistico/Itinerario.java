@@ -1,20 +1,18 @@
 package edu.umss.fcyt.tourismapp.paquete_turistico;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Itinerario {
+public class Itinerario implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @NotBlank
     private String nombre;
     
@@ -29,6 +27,14 @@ public class Itinerario {
     
     @NotNull
     private Time horaFin;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getFechaInicio() {
         return fechaInicio;
@@ -60,14 +66,6 @@ public class Itinerario {
 
     public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNombre() {
