@@ -27,7 +27,7 @@ public class ServicioController {
         return servicioService.getById(id);
     }
 
-    @PostMapping("/servicio/create")
+    @PostMapping("/servicio")
     public Servicio create(@Valid @RequestBody Servicio servicio) {
         return servicioService.save(servicio);
     }
