@@ -22,4 +22,9 @@ public class ServicioService {
     public Servicio save(Servicio servicio) {
         return servicioService.save(servicio);
     }
+
+    public void delete(long id)
+    {
+        servicioService.deleteById(id);
+    }
 }

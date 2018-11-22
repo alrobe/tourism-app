@@ -2,6 +2,7 @@ package edu.umss.fcyt.tourismapp.paquete_turistico;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +31,11 @@ public class ServicioController {
     @PostMapping("/servicio")
     public Servicio create(@Valid @RequestBody Servicio servicio) {
         return servicioService.save(servicio);
+    }
+
+    @DeleteMapping("/servicio/eliminar/{id}")
+    public void delete(@PathVariable long id)
+    {
+        servicioService.delete(id);
     }
 }
