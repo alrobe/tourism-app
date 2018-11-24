@@ -1,10 +1,8 @@
 package edu.umss.fcyt.tourismapp.actividad;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
@@ -12,13 +10,15 @@ import java.sql.Time;
 @Entity
 public class Actividad implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
+    @Size(max = 100)
     private String nombre;
 
     @Column(nullable = true)
+    @Size(max = 250)
     private String descripcion;
 
     private Time horaInicio;
