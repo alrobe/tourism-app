@@ -317,9 +317,6 @@ CREATE TABLE `servicio` (
   KEY `FK30ywix4i2nxmjl2aslaatmmx4` (`paquete_turistico_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- ----------------------------
--- Records of servicio
--- ----------------------------
 INSERT INTO `servicio` VALUES ('1', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '10');
 INSERT INTO `servicio` VALUES ('2', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '2');
 INSERT INTO `servicio` VALUES ('3', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '6');
