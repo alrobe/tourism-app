@@ -308,43 +308,42 @@ CREATE TABLE `person` (
 -- ----------------------------
 DROP TABLE IF EXISTS `servicio`;
 CREATE TABLE `servicio` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
-  `paquete_turistico_id` bigint(20) DEFAULT NULL,
+  `paquete_turistico_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
   KEY `FK30ywix4i2nxmjl2aslaatmmx4` (`paquete_turistico_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
--- ----------------------------
--- Records of servicio
--- ----------------------------
-INSERT INTO `servicio` VALUES ('1', 'desayuno', '10');
-INSERT INTO `servicio` VALUES ('2', 'cena', '2');
-INSERT INTO `servicio` VALUES ('3', 'masajes', '6');
-INSERT INTO `servicio` VALUES ('4', 'guia incluido', '2');
-INSERT INTO `servicio` VALUES ('5', 'cena', '5');
-INSERT INTO `servicio` VALUES ('6', 'almuerzo', '13');
-INSERT INTO `servicio` VALUES ('7', 'guia incluido', '6');
-INSERT INTO `servicio` VALUES ('8', 'guia incluido', '15');
-INSERT INTO `servicio` VALUES ('9', 'desayuno', '7');
-INSERT INTO `servicio` VALUES ('10', 'guia incluido', '12');
-INSERT INTO `servicio` VALUES ('11', 'almuerzo', '14');
-INSERT INTO `servicio` VALUES ('12', 'masajes', '3');
-INSERT INTO `servicio` VALUES ('13', 'desayuno', '8');
-INSERT INTO `servicio` VALUES ('14', 'guia incluido', '5');
-INSERT INTO `servicio` VALUES ('15', 'cena', '2');
-INSERT INTO `servicio` VALUES ('16', 'masajes', '1');
-INSERT INTO `servicio` VALUES ('17', 'guia incluido', '11');
-INSERT INTO `servicio` VALUES ('18', 'desayuno', '8');
-INSERT INTO `servicio` VALUES ('19', 'guia incluido', '15');
-INSERT INTO `servicio` VALUES ('20', 'almuerzo', '13');
-INSERT INTO `servicio` VALUES ('21', 'cena', '3');
-INSERT INTO `servicio` VALUES ('22', 'guia incluido', '1');
-INSERT INTO `servicio` VALUES ('23', 'almuerzo', '4');
-INSERT INTO `servicio` VALUES ('24', 'cena', '12');
-INSERT INTO `servicio` VALUES ('25', 'desayuno', '9');
-INSERT INTO `servicio` VALUES ('26', 'masajes', '4');
-INSERT INTO `servicio` VALUES ('27', 'cena', '14');
-INSERT INTO `servicio` VALUES ('28', 'desayuno', '11');
-INSERT INTO `servicio` VALUES ('29', 'guia incluido', '9');
-INSERT INTO `servicio` VALUES ('30', 'masajes', '10');
+INSERT INTO `servicio` VALUES ('1', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '10');
+INSERT INTO `servicio` VALUES ('2', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '2');
+INSERT INTO `servicio` VALUES ('3', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '6');
+INSERT INTO `servicio` VALUES ('4', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '2');
+INSERT INTO `servicio` VALUES ('5', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '5');
+INSERT INTO `servicio` VALUES ('6', 'La mejor experiencia culinaria con platos de alta calidad', 'almuerzo', '13');
+INSERT INTO `servicio` VALUES ('7', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '6');
+INSERT INTO `servicio` VALUES ('8', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '15');
+INSERT INTO `servicio` VALUES ('9', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '7');
+INSERT INTO `servicio` VALUES ('10', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '12');
+INSERT INTO `servicio` VALUES ('11', 'La mejor experiencia culinaria con platos de alta calidad', 'almuerzo', '14');
+INSERT INTO `servicio` VALUES ('12', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '3');
+INSERT INTO `servicio` VALUES ('13', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '8');
+INSERT INTO `servicio` VALUES ('14', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '5');
+INSERT INTO `servicio` VALUES ('15', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '2');
+INSERT INTO `servicio` VALUES ('16', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '1');
+INSERT INTO `servicio` VALUES ('17', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '11');
+INSERT INTO `servicio` VALUES ('18', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '8');
+INSERT INTO `servicio` VALUES ('19', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '15');
+INSERT INTO `servicio` VALUES ('20', 'La mejor experiencia culinaria con platos de alta calidad', 'almuerzo', '13');
+INSERT INTO `servicio` VALUES ('21', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '3');
+INSERT INTO `servicio` VALUES ('22', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '1');
+INSERT INTO `servicio` VALUES ('23', 'La mejor experiencia culinaria con platos de alta calidad', 'almuerzo', '4');
+INSERT INTO `servicio` VALUES ('24', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '12');
+INSERT INTO `servicio` VALUES ('25', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '9');
+INSERT INTO `servicio` VALUES ('26', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '4');
+INSERT INTO `servicio` VALUES ('27', 'Ofrecemos platos con un menú variado con un primer plato, un segundo, el postre y la bebida', 'cena', '14');
+INSERT INTO `servicio` VALUES ('28', 'Incluye café, te o leche, jugo o frutas, pan o tostadas, mermelada o mantequilla', 'desayuno', '11');
+INSERT INTO `servicio` VALUES ('29', 'Optimiza tu tiempo y disfruta conociendo los mejores rincones de la ciudad de la mano de un guía local, y en tu idioma', 'guia incluido', '9');
+INSERT INTO `servicio` VALUES ('30', 'Experiencias relacionadas con el wellness, con el objetivo final que los huéspedes disfruten de un buen rato cuidando de su salud y bienestar', 'masajes', '10');

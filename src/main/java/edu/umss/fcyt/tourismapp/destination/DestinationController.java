@@ -35,9 +35,15 @@ public class DestinationController {
     private LocationService locationService;
 
     @GetMapping("/all")
-    public List<Destination> index() {
+    public List<Destination> getAll() {
         return destinationService.getAllDestinations();
     }
+    
+    @GetMapping("/{id}")
+    public Optional<Destination> getById(@PathVariable(value = "id")Long id) {
+        return destinationService.findById(id);
+    }
+    
     @PostMapping("")
     public Destination createDestination(@Valid @RequestBody Destination destination) {
         Location location = locationService.createLocation(destination.getLocation());
