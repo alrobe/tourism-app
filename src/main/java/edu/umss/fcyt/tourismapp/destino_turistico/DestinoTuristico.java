@@ -15,9 +15,9 @@ import java.util.Set;
 
 @Entity
 //https://blog.encodez.com/tips/jackson-bidirectional-relationship-the-right-way-preventing-infinite-recursion-exception-with-java-jackson
-@JsonIdentityInfo(
-        generator= ObjectIdGenerators.PropertyGenerator.class,
-        property="id")
+//@JsonIdentityInfo(
+//        generator= ObjectIdGenerators.PropertyGenerator.class,
+//        property="id")
 public class DestinoTuristico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +37,7 @@ public class DestinoTuristico implements Serializable {
     @NotNull
     private int secuencia;
     @ManyToMany(mappedBy = "destinoTuristicos")
+    @JsonIgnore
     private Set<CircuitoTuristico> circuitoTuristicos = new HashSet<CircuitoTuristico>();
 
     public Long getId() {
