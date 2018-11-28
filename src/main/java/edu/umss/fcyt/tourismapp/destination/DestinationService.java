@@ -35,4 +35,9 @@ public class DestinationService {
     public Optional<Destination> findById(long id) {
         return destinyRepository.findById(id);
     }
+    
+    public void remove(long id) {
+        Destination destination = destinyRepository.findById(id).get();
+        destinyRepository.delete(destination);
+    }
 }
